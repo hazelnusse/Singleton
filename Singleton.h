@@ -3,17 +3,23 @@
 
 #include <cstdint>
 
+template <typename T>
 class Singleton {
  public:
-  static Singleton & Instance();
+  static T & Instance();
 
- private:
+ protected:
   Singleton();
   ~Singleton();
-  Singleton & operator=(const Singleton &) = delete;
-  Singleton(const Singleton &) = delete;
+
+ private:
+  T & operator=(const T &) = delete;
+  Singleton(const T &) = delete;
 
   static void * operator new(std::size_t, void * location);
-  static Singleton * instance_;
+  static T * instance_;
 };
+
+#include "Singleton_priv.h"
+
 #endif

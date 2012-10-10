@@ -9,8 +9,6 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 endif()
 
-add_library(Singleton Singleton.cc)
-
 include_directories(${Singleton_SOURCE_DIR})
 if (Singleton_build_tests)
   enable_testing()
