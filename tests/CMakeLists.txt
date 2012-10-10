@@ -1,5 +1,5 @@
-include_directories(${Singleton_SOURCE_DIR}/gtest)
-include_directories(${Singleton_SOURCE_DIR}/gtest/include)
+include_directories(${Singleton_SOURCE_DIR}/googletest)
+include_directories(${Singleton_SOURCE_DIR}/googletest/include)
 
 # Eigenvalue test-gtest
 add_executable(testSingleton testSingleton.cc)
