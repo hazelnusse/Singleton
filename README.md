@@ -20,7 +20,35 @@ and then you can get a reference to your singleton like this:
 
     SpecificSingleton & a = SpecificSingleton::Instance();
 
+The class is implemented as headers only, so to use it simply add `Singleton.h`
+and `Singleton_priv.h` to the include path of your project.  No libraries need
+to be built or installed.  `make install` will install these headers to your
+system.
+
 That's all there is to it!
+
+## Cloning and running tests
+
+A couple of simple tests are implemented with
+[googletest](http://code.google.com/p/googletest/ "Google C++ Testing
+Framework").  For some reason googletest still uses subversion, so I had to
+monkey around a bit in order to make googletest into a git submodule.  I
+basically followed the advice given
+[here](http://stackoverflow.com/questions/465042/is-it-possible-to-have-a-subversion-repository-as-a-git-submodule
+"Is it possible to have a subversion repository as a git submodule?").  In
+order to clone and build the Singleton repository, repeat the following
+incantation
+
+    $ git clone git://github.com/hazelnusse/Singleton.git
+    $ cd Singleton
+    $ git submodule init
+    $ git submodule update
+    $ mkdir build
+    $ cd build
+    $ cmake ..              # or: cmake-gui ..
+    $ make
+    $ make test
+    $ make install
 
 ## TODO
  * Make Singleton constructor allow for finite numbers of unique Singletons.

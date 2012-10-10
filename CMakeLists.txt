@@ -15,3 +15,6 @@ if (Singleton_build_tests)
   add_subdirectory(googletest)
   add_subdirectory(tests)
 endif()
+
+install(FILES Singleton.h Singleton_priv.h
+        DESTINATION include)
