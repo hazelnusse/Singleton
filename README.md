@@ -46,9 +46,9 @@ incantation
     $ mkdir build
     $ cd build
     $ cmake ..              # or: cmake-gui ..
-    $ make
-    $ make test
-    $ make install
+    $ make                  # doesn't do anything if you disabled tests
+    $ make test             # doesn't do anything if you disabled tests
+    $ make install          # installs headers to /usr/local/include by default
 
 ## TODO
  * Make Singleton constructor allow for finite numbers of unique Singletons.
