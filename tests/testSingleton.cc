@@ -62,3 +62,11 @@ TEST(InheritanceTest, InstanceUniqueness)
   EXPECT_EQ(a.otherdata(), 2);
   EXPECT_EQ(b.otherdata(), 2);
 }
+
+TEST(InheritanceTest, InstanceSize)
+{
+  bar & a = bar::Instance();
+  // foo has an int, bar has an int
+  EXPECT_EQ(sizeof(a), sizeof(int)*2);
+}
+
