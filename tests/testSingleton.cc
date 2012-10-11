@@ -4,29 +4,29 @@
 class SpecificSingleton : public Singleton<SpecificSingleton>
 {
  public:
-  SpecificSingleton() : someData_(42) {}
+  SpecificSingleton() : Data_(42) {}
   ~SpecificSingleton() {}
  private:
-  int someData_;
+  int Data_;
 };
 
 class foo {
  public:
-    foo() : someData_(0) {}
-    int data() { return someData_; }
-    void data(int d) { someData_ = d; }
+  foo() : MoreData_(0) {}
+  int data() { return MoreData_; }
+  void data(int d) { MoreData_ = d; }
  protected:
-    int someData_;
+  int MoreData_;
 };
 
 class bar : public foo, public Singleton<bar>
 {
  public:
-  bar() : someOtherData_(1) {}
-  int otherdata() { return someOtherData_; }
-    void otherdata(int d) { someOtherData_ = d; }
+  bar() : OtherData_(1) {}
+  int otherdata() { return OtherData_; }
+  void otherdata(int d) { OtherData_ = d; }
  private:
-  int someOtherData_;
+  int OtherData_;
 };
 
 TEST(SpecificSingletonTest, InstanceUniqueness)
@@ -69,4 +69,3 @@ TEST(InheritanceTest, InstanceSize)
   // foo has an int, bar has an int
   EXPECT_EQ(sizeof(a), sizeof(int)*2);
 }
-
