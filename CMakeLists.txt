@@ -1,4 +1,4 @@
-option(Singleton_build_tests "Build all of Singleton's tests." ON)
+option(Singleton_build_tests "Build all of Singleton's tests." OFF)
 
 project(Singleton CXX)
 cmake_minimum_required(VERSION 2.8)
@@ -12,7 +12,7 @@ endif()
 include_directories(${Singleton_SOURCE_DIR})
 if (Singleton_build_tests)
   enable_testing()
-  add_subdirectory(googletest)
+#add_subdirectory(googletest)
   add_subdirectory(tests)
 endif()
 
