@@ -9,7 +9,7 @@ To use the Singleton class, simply subclass it as follows:
 
     class SpecificSingleton : public Singleton<SpecificSingleton>
     {
-     public:
+     protected:
       SpecificSingleton() : someData_(42) {}
       ~SpecificSingleton() {}
      private:

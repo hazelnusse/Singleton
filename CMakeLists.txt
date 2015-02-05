@@ -12,7 +12,7 @@ endif()
 include_directories(${Singleton_SOURCE_DIR})
 if (Singleton_build_tests)
   enable_testing()
-#add_subdirectory(googletest)
+  add_subdirectory(googletest)
   add_subdirectory(tests)
 endif()
 
