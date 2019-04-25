@@ -1,5 +1,4 @@
-#include <cstdint>
-#include "Singleton.h"
+#include <type_traits>
 
 template <typename T>
 T * Singleton<T>::instance_ = 0;
@@ -19,10 +18,11 @@ Singleton<T>::~Singleton()
 template <typename T>
 inline T & Singleton<T>::Instance()
 {
-  static uint8_t allocation[sizeof(T)];
+  //static uint8_t allocation[sizeof(T)];
+  typename std::aligned_storage<sizeof(T), alignof(T)>::type allocation;
 
   if (instance_ == 0)
-    instance_ = new (allocation) T;
+    instance_ = new (&allocation) T;
 
   return * instance_;
 }

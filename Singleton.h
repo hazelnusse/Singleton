@@ -1,5 +1,4 @@
-#ifndef SINGLETON_H
-#define SINGLETON_H
+#pragma once
 
 #include <cstdint>
 
@@ -21,5 +20,3 @@ class Singleton {
 };
 
 #include "Singleton_priv.h"
-
-#endif
